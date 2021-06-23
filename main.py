@@ -55,9 +55,7 @@ def main():
   _, height, width, _ = interpreter.get_input_details()[0]['shape']
 
   image = Image.open(args.image).convert('RGB').resize((width,height),Image.ANTIALIAS)
-  start_time = time.time()
   results = classify_image(interpreter, image)
-  elapsed_ms = (time.time() - start_time) * 1000
   label_id, prob = results[0]
   print('result:::: {0} {1}'.format(labels[label_id],prob))
 
